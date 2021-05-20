@@ -1,15 +1,41 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import React from 'react';
+
+const Stack = createStackNavigator();
+
+import listScreen from './screens/list'
+import formScreen from './screens/form'
+
+const App = () => {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
-  );
+      <Stack.Navigator>
+        <Stack.Screen
+          name="List"
+          component={listScreen}
+          options={{ title: 'List' }}
+        />
+        <Stack.Screen
+          name="Form"
+          component={formScreen}
+          options={{ title: 'Welche Uno liebst du?' }}
+        />
+      </Stack.Navigator>
+      <View style={styles.container}>
+        <SafeAreaView>
+        </SafeAreaView>
+      </View>
+    </NavigationContainer>
+  );r
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -18,4 +44,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  container: {
+    flex: 1,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
 });
+export default App
