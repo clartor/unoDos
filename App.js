@@ -25,7 +25,7 @@ const App = () => {
         <Stack.Screen
           name="Form"
           component={formScreen}
-          options={{ title: 'Welche Uno liebst du?' }}
+          options={{ title: 'Please enter information' }}
         />
       </Stack.Navigator>
       <View style={styles.container}>
