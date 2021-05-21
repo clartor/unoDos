@@ -2,43 +2,48 @@ import React, { Component } from 'react';
  
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import { Formik } from 'formik'
-import Dragmonth from '../month'
 
 const Form = () => {
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{ birthMonth: '', firstName: '', lastName: '' }}
+        initialValues={{  firstName: '',smekNamn: '', spel: '', hemlis: '' }}
         onSubmit={(values) => console.log('submitted', values)}
       >
         {({ handleChange, handleSubmit, values }) => (
           <View style={styles.form}>
-
-            <Text>Födelsemånad</Text>
-            <TextInput
-              style={styles.input}
-              value={values.birthMonth}
-              onChangeText={handleChange('birthMonth')}
-            />
             <Text>Förnamn</Text>
             <TextInput
               style={styles.input}
               value={values.firstName}
-              onChangeText={handleChange('firstName')}
-            // secureTextEntry={true}
+              onChangeText={handleChange('firstName')}  
             />
-            <Text>Efternamn</Text>
+            <Text>Smeknamn</Text>
             <TextInput
               style={styles.input}
-              value={values.lastName}
-              onChangeText={handleChange('lastName')}
-            // secureTextEntry={true}
+              value={values.smekNamn}
+              onChangeText={handleChange('smekNamn')}
+            />
+            <Text>Favorit spel</Text>
+            <TextInput
+              style={styles.input}
+              value={values.spel}
+              onChangeText={handleChange('spel')}
+            />
+            <Text>Berätta en hemlis!</Text>
+            <TextInput
+              style={styles.input}
+              value={values.hemlis}
+              onChangeText={handleChange('hemlis')}
+              secureTextEntry={true}
             />
             <Button style={styles.button} onPress={handleSubmit} title="Submit" />
+    
+            {/* <Text>{this.values}</Text> */}
           </View>
         )}
       </Formik>
-
+          
     </View>
   )
 }
@@ -69,7 +74,8 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   form: {
-    padding: 15
+    padding: 15,
+    fontSize: 80
   },
 });
 
