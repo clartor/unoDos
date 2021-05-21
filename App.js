@@ -17,12 +17,12 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator>
-        <Stack.Screen
+        <Stack.Screen style="styles.screen"
           name="List"
           component={listScreen}
           options={{ title: 'List' }}
         />
-        <Stack.Screen
+        <Stack.Screen style="styles.screen"
           name="Form"
           component={formScreen}
           options={{ title: 'Please enter information' }}
@@ -52,5 +52,9 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
   },
+  screen: {
+    textAlign: 'center'
+  },
+
 });
 export default App

@@ -16,42 +16,42 @@ const List = ({navigation}) => {
 
   const fetchPosts = () => {
     const apiURL = 'https://jsonplaceholder.typicode.com/posts';
-    fetch(apiURL).then((response) => response.json()) // hämtar ett svar i JSON format
+    fetch(apiURL).then((response) => response.json()) 
     .then((responseJson) => { 
-      setfilterdData(responseJson);                   // input ruta
-      setmasterData(responseJson);                     // hela listan
+      setfilterdData(responseJson);                   
+      setmasterData(responseJson);                  
     }).catch((error) => {
       console.error(error);
     })
   }
   
-  const searchFilter = (text) => { // namnet på funktionen som hämtar item, item är txtraden i listan
+  const searchFilter = (text) => {            
 
-    if (text) {                                                 // om text i inputrutan 
-      const newData = masterData.filter((item) => {             // inputvärde till nwData
-        const itemData = item.title ? item.title.toUpperCase()  // värdet i input sätts till upperCase
-                : ''.toUpperCase();                             // if/else till stor bokstav
+    if (text) {                                                 
+      const newData = masterData.filter((item) => {            
+        const itemData = item.title ? item.title.toUpperCase()  
+                : ''.toUpperCase();                             
         const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1;                 // om nått är skrivet i input så ska det sparas
+        return itemData.indexOf(textData) > -1;                
       });
-      setfilterdData(newData);                                  // det som skriits i input ruran är det filtrerade värdet 
-      setsearch(text);                                                // sätts i search
+      setfilterdData(newData);                                  
+      setsearch(text);                                              
     } 
     else {
-      setfilterdData(masterData);                                // annars urspungliga listan
+      setfilterdData(masterData);                              
       setsearch(text);
     }
   }
 
-  const ItemView = ({item}) => {                                // vilka item/rader som visas
-                                                                // nr på raden . texten
+  const ItemView = ({item}) => {                           
+                                                            
     return (
       <Text style={styles.itemStyle}>
         {item.id}{'. '}{item.title.toUpperCase()}               
       </Text>
     )
   }
-  const ItemSeparatorView = () => { // markering mellan rader
+  const ItemSeparatorView = () => { 
     return (
       <View
         style= {{height:0.5, width:'100%', backgroundColor: '#c8c8c8'}}
@@ -78,7 +78,7 @@ const List = ({navigation}) => {
         onChangeText={(text) => searchFilter(text)}
         />
       <FlatList
-        data = {filterdData} // det som visas är datan som blivit filtrerad
+        data = {filterdData} 
         keyExtractor={(item, index) => index.toString()}
         ItemSeparatorComponent={ItemSeparatorView}
         renderItem={ItemView}
