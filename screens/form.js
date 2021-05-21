@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
  
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import { Formik } from 'formik'
 
 const Form = () => {
+
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{  firstName: '',smekNamn: '', spel: '', hemlis: '' }}
-        onSubmit={(values) => console.log('submitted', values)}
+        initialValues={{firstName: '',smekNamn: '', spel: '', hemlis: '' }}
+        onSubmit={(values) => alert('submitted', values)}
       >
         {({ handleChange, handleSubmit, values }) => (
           <View style={styles.form}>
@@ -38,8 +39,6 @@ const Form = () => {
               secureTextEntry={true}
             />
             <Button style={styles.button} onPress={handleSubmit} title="Submit" />
-    
-            {/* <Text>{this.values}</Text> */}
           </View>
         )}
       </Formik>
@@ -48,14 +47,11 @@ const Form = () => {
   )
 }
 
-// 437/600
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#fff',
     width: '50%', 
     height: 800,
     alignSelf: 'center'
-    // padding: 15,
   },
   itemStyle: {
     padding: 15,
