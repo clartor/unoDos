@@ -1,16 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react';
+ 
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import { Formik } from 'formik'
+import Dragmonth from '../month'
 
-const Form = ({ navigation }) => {
-
+const Form = () => {
   return (
     <View style={styles.container}>
-      {/* <Button
-        title="Go home ur drunk"
-        onPress={() => navigation.navigate('List')
-        } /> */}
-
       <Formik
         initialValues={{ birthMonth: '', firstName: '', lastName: '' }}
         onSubmit={(values) => console.log('submitted', values)}
@@ -75,10 +71,6 @@ const styles = StyleSheet.create({
   form: {
     padding: 15
   },
-  // button: {
-  //   width: '50%', 
-  //   height: '50%', 
-  // }
 });
 
 
