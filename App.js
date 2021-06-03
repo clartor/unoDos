@@ -28,25 +28,16 @@ const App = () => {
           options={{ title: 'Please enter information' }}
         />
       </Stack.Navigator>
-      <View style={styles.container}>
+      <View>
         <SafeAreaView>
         </SafeAreaView>
       </View>
     </NavigationContainer>
-  );r
+  );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-  },
   item: {
     backgroundColor: '#f9c2ff',
     padding: 20,
