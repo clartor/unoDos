@@ -10,7 +10,6 @@ const List = ({navigation}) => {
   useEffect(() => {
     fetchPosts(); 
     return () => {
-
     }
   }, [])
 
@@ -91,6 +90,9 @@ const List = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
+    flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'stretch'
   },
   itemStyle: {
     padding: 15,

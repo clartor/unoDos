@@ -1,5 +1,4 @@
 import React from 'react';
- 
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import { Formik } from 'formik'
 
@@ -8,8 +7,8 @@ const Form = () => {
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{firstName: '',smekNamn: '', spel: '', hemlis: '' }}
-        onSubmit={(values) => alert('submitted', values)}
+        initialValues={{ firstName: '', smekNamn: '', spel: '', hemlis: '' }}
+        onSubmit={(values) => alert('Thank You ' + values.smekNamn + ', your secret is safe with me')}
       >
         {({ handleChange, handleSubmit, values }) => (
           <View style={styles.form}>
@@ -17,7 +16,7 @@ const Form = () => {
             <TextInput
               style={styles.input}
               value={values.firstName}
-              onChangeText={handleChange('firstName')}  
+              onChangeText={handleChange('firstName')}
             />
             <Text>Smeknamn</Text>
             <TextInput
@@ -42,22 +41,21 @@ const Form = () => {
           </View>
         )}
       </Formik>
-          
+
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '50%', 
-    height: 800,
+    width: '50%',
     alignSelf: 'center'
   },
   itemStyle: {
     padding: 15,
   },
   textInputStyles: {
-    height: 40,
+    height: 20,
     borderWidth: 1,
     paddingLeft: 20,
     margin: 5,
@@ -73,6 +71,9 @@ const styles = StyleSheet.create({
     padding: 15,
     fontSize: 80
   },
+  button: {
+    borderColor: 'black'
+  }
 });
 
 
